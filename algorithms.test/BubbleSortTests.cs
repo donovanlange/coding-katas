@@ -1,7 +1,5 @@
 using Xunit;
 
-using Algorithms.Sorting;
-
 namespace Algorithms.Sorting.Test
 {
     public class BubbleSortTests
