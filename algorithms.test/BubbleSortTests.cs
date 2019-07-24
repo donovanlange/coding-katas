@@ -10,7 +10,7 @@ namespace Algorithms.Test.Sorting
         [Fact]
         public void Sort_WithNullValues_NoOps()
         {
-            BubbleSort.Sort(values: null);
+            BubbleSort.Sort<int>(values: null);
         }
 
         private int[] ExpectedSort(int[] values)

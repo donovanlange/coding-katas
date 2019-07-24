@@ -1,10 +1,12 @@
+using System;
+
 namespace Algorithms.Sorting
 {
     public static class SelectionSort
     {
-        private static void Swap(this int[] values, int iSource, int iDestination)
+        private static void Swap<T>(this T[] values, int iSource, int iDestination)
         {
-            int destinationValue = values[iDestination];
+            T destinationValue = values[iDestination];
             values[iDestination] = values[iSource];
             values[iSource] = destinationValue;
         }
@@ -13,18 +15,18 @@ namespace Algorithms.Sorting
         /// Sorts the given values using a SelectionSort algorithm.
         /// </summary>
         /// <param name="values">The values to be sorted.</param>
-        public static void Sort(int[] values)
+        public static void Sort<T>(T[] values) where T: IComparable
         {
             if (values == null)
                 return;
 
             for (int iSortedList = values.Length - 1; iSortedList > 0; iSortedList--)
             {
-                int maxUnsortedValue = values[0];
+                T maxUnsortedValue = values[0];
                 int iMaxUnsortedValue = 0;
                 for (int iUnsortedCandidates = 1; iUnsortedCandidates <= iSortedList; iUnsortedCandidates++)
                 {
-                    if (values[iUnsortedCandidates] > maxUnsortedValue)
+                    if (values[iUnsortedCandidates].CompareTo(maxUnsortedValue) > 0)
                     {
                         maxUnsortedValue = values[iUnsortedCandidates];
                         iMaxUnsortedValue = iUnsortedCandidates;

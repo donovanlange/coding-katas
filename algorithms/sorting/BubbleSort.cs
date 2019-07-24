@@ -1,3 +1,5 @@
+using System;
+
 namespace Algorithms.Sorting
 {
     public static class BubbleSort
@@ -5,9 +7,9 @@ namespace Algorithms.Sorting
         /// <summary>
         /// Swaps two elements in an array of values.
         /// </summary>
-        private static void Swap(this int[] values, int indexToSwap, int indexToSwapTo)
+        private static void Swap<T>(this T[] values, int indexToSwap, int indexToSwapTo)
         {
-            int temp = values[indexToSwapTo];
+            T temp = values[indexToSwapTo];
             values[indexToSwapTo] = values[indexToSwap];
             values[indexToSwap] = temp;
         }
@@ -17,7 +19,7 @@ namespace Algorithms.Sorting
         /// </summary>
         /// <param name="values">The unordered values to be sorted.</param>
         /// <returns>The sorted values.</returns>
-        public static void Sort(int[] values)
+        public static void Sort<T>(T[] values) where T: IComparable
         {
             if (values == null)
                 return;
@@ -30,7 +32,7 @@ namespace Algorithms.Sorting
                 valuesReordered = false;
                 for (int iValue = 1; iValue < countUnorderedValues; iValue++)
                 {
-                    if (values[iValue - 1] > values[iValue])
+                    if (values[iValue - 1].CompareTo(values[iValue]) > 0)
                     {
                         values.Swap(iValue - 1, iValue);
                         valuesReordered = true;

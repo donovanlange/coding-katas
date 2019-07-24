@@ -17,7 +17,7 @@ namespace Algorithms.Test.Sorting
         [Fact]
         public void Sort_Null_NoOps()
         {
-            SelectionSort.Sort(null);
+            SelectionSort.Sort<int>(null);
         }
 
         [Theory]
