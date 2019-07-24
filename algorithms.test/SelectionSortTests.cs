@@ -1,23 +1,23 @@
-using Xunit;
 using System;
+using Xunit;
 
 using Algorithms.Sorting;
 
 namespace Algorithms.Test.Sorting
 {
-    public class BubbleSortTests
+    public class SelectionSortTests
     {
-        [Fact]
-        public void Sort_WithNullValues_NoOps()
-        {
-            BubbleSort.Sort(values: null);
-        }
-
         private int[] ExpectedSort(int[] values)
         {
             int[] sortedValues = (int[]) values.Clone();
             Array.Sort(sortedValues);
             return sortedValues;
+        }
+
+        [Fact]
+        public void Sort_Null_NoOps()
+        {
+            SelectionSort.Sort(null);
         }
 
         [Theory]
@@ -31,7 +31,7 @@ namespace Algorithms.Test.Sorting
             int[] expected = ExpectedSort(values);
 
             int[] sorted = values;
-            BubbleSort.Sort(sorted);
+            SelectionSort.Sort(sorted);
 
             Assert.Equal(expected, sorted);
         }

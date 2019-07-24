@@ -5,7 +5,7 @@ namespace Algorithms.Sorting
         /// <summary>
         /// Swaps two elements in an array of values.
         /// </summary>
-        public static void Swap(this int[] values, int indexToSwap, int indexToSwapTo)
+        private static void Swap(this int[] values, int indexToSwap, int indexToSwapTo)
         {
             int temp = values[indexToSwapTo];
             values[indexToSwapTo] = values[indexToSwap];
@@ -17,10 +17,10 @@ namespace Algorithms.Sorting
         /// </summary>
         /// <param name="values">The unordered values to be sorted.</param>
         /// <returns>The sorted values.</returns>
-        public static int[] Sort(int[] values)
+        public static void Sort(int[] values)
         {
             if (values == null)
-                return null;
+                return;
 
             int countUnorderedValues = values.Length;
 
@@ -41,8 +41,6 @@ namespace Algorithms.Sorting
                 // stabilized:
                 countUnorderedValues--;
             }
-
-            return values;
         }
     }
 }
