@@ -7,7 +7,14 @@ namespace Algorithms.Sorting.Test
         [Fact]
         public void Sort_WithNullValues_ReturnsNullValues()
         {
-            Assert.Null(BubbleSort.Sort(unordered: null));
+            Assert.Null(BubbleSort.Sort(values: null));
         }
+
+        [Fact]
+        public void Sort_ReturnsSortedValues()
+        {
+            Assert.Equal(new int[]{7, 8, 9}, BubbleSort.Sort(new int[] {9, 8, 7}));
+        }
+
     }
 }
