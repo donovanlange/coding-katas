@@ -5,22 +5,10 @@ using Algorithms.Sorting;
 
 namespace Algorithms.Test.Sorting
 {
-    public class SelectionSortTests
+    public class SelectionSortTests : SortTests
     {
-        private int[] ExpectedSort(int[] values)
-        {
-            int[] sortedValues = (int[]) values.Clone();
-            Array.Sort(sortedValues);
-            return sortedValues;
-        }
-
-        [Fact]
-        public void Sort_Null_NoOps()
-        {
-            SelectionSort.Sort<int>(null);
-        }
-
         [Theory]
+        [InlineData(null)]
         [InlineData(new int[] {9, 8, 7})]
         [InlineData(new int[] {7, 8, 9})]
         [InlineData(new int[] {10, 7, 7, 7, 8, 9})]
@@ -28,12 +16,7 @@ namespace Algorithms.Test.Sorting
         [InlineData(new int[] {9})]
         public void Sort_ReturnsSortedValues(int[] values)
         {
-            int[] expected = ExpectedSort(values);
-
-            int[] sorted = values;
-            SelectionSort.Sort(sorted);
-
-            Assert.Equal(expected, sorted);
+            SortAlgorithm_ReturnsSortedValues(SelectionSort.Sort, values);
         }
     }
 }

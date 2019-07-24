@@ -5,22 +5,10 @@ using Algorithms.Sorting;
 
 namespace Algorithms.Test.Sorting
 {
-    public class BubbleSortTests
+    public class BubbleSortTests : SortTests
     {
-        [Fact]
-        public void Sort_WithNullValues_NoOps()
-        {
-            BubbleSort.Sort<int>(values: null);
-        }
-
-        private int[] ExpectedSort(int[] values)
-        {
-            int[] sortedValues = (int[]) values.Clone();
-            Array.Sort(sortedValues);
-            return sortedValues;
-        }
-
         [Theory]
+        [InlineData(null)]
         [InlineData(new int[] {9, 8, 7})]
         [InlineData(new int[] {7, 8, 9})]
         [InlineData(new int[] {10, 7, 7, 7, 8, 9})]
@@ -28,12 +16,7 @@ namespace Algorithms.Test.Sorting
         [InlineData(new int[] {9})]
         public void Sort_ReturnsSortedValues(int[] values)
         {
-            int[] expected = ExpectedSort(values);
-
-            int[] sorted = values;
-            BubbleSort.Sort(sorted);
-
-            Assert.Equal(expected, sorted);
+            SortAlgorithm_ReturnsSortedValues(BubbleSort.Sort, values);
         }
     }
 }
