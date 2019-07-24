@@ -1,19 +1,11 @@
 using System;
 
+using Algorithms.Extensions;
+
 namespace Algorithms.Sorting
 {
     public static class BubbleSort
     {
-        /// <summary>
-        /// Swaps two elements in an array of values.
-        /// </summary>
-        private static void Swap<T>(this T[] values, int indexToSwap, int indexToSwapTo)
-        {
-            T temp = values[indexToSwapTo];
-            values[indexToSwapTo] = values[indexToSwap];
-            values[indexToSwap] = temp;
-        }
-
         /// <summary>
         /// Sorts the given array of numbers using a BubbleSort algorithm.
         /// </summary>

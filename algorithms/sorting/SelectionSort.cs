@@ -1,16 +1,11 @@
 using System;
 
+using Algorithms.Extensions;
+
 namespace Algorithms.Sorting
 {
     public static class SelectionSort
     {
-        private static void Swap<T>(this T[] values, int iSource, int iDestination)
-        {
-            T destinationValue = values[iDestination];
-            values[iDestination] = values[iSource];
-            values[iSource] = destinationValue;
-        }
-
         /// <summary>
         /// Sorts the given values using a SelectionSort algorithm.
         /// </summary>
